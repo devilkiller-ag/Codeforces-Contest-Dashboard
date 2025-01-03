@@ -1,24 +1,20 @@
 import './App.css';
-import useCustomReactQueryHook from './hooks/useCustomReactQueryHook.ts';
+import { AppProvider } from '@shopify/polaris';
+import enTranslations from '@shopify/polaris/locales/en.json';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Dashboard from './components/Dashboard';
+import '@shopify/polaris/build/esm/styles.css';
 
 function App() {
-
-  const { data: contests, error, loading } = useCustomReactQueryHook('/api');
-
-  if (error) {
-    return <h1>Something went wrong!</h1>;
-  }
-
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
-
   return (
-    <div className='w-full h-full min-h-screen flex justify-center items-center flex-col'>
-      <h1>Codeforces Contest Dashboard</h1>
-      <h2>Number of contests are: {contests.length}</h2>
-    </div>
-  )
+    <AppProvider i18n={enTranslations}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+        </Routes>
+      </Router>
+    </AppProvider>
+  );
 }
 
 export default App;
