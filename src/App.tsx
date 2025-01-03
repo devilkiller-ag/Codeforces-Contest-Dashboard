@@ -14,10 +14,10 @@ function App() {
   }
 
   return (
-    <>
+    <div className='w-full h-full min-h-screen flex justify-center items-center flex-col'>
       <h1>Codeforces Contest Dashboard</h1>
       <h2>Number of contests are: {contests.length}</h2>
-    </>
+    </div>
   )
 }
 
