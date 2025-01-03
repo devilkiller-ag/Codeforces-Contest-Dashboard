@@ -1,6 +1,7 @@
 import Loading from './Loading.tsx';
 import useCustomReactQueryHook from './../hooks/useCustomReactQueryHook.ts';
 import ErrorComponent from './ErrorPage.tsx';
+import ContestList from './ContestList.tsx';
 
 const Dashboard = () => {
 
@@ -18,6 +19,9 @@ const Dashboard = () => {
     <div className='w-full h-full min-h-screen flex justify-center items-center flex-col'>
       <h1>Codeforces Contest Dashboard</h1>
       <h2>Number of contests are: {contests.length}</h2>
+
+      <ContestList contests={contests} />
+
     </div>
   );
 };
